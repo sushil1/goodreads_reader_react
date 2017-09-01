@@ -12,3 +12,6 @@ create a .eslintrc file
 install react-router-dom
 
 install semantic-ui-react and semantic-ui-css
+
+
+install validator package for form validation
