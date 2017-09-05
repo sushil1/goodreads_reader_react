@@ -8,6 +8,9 @@ export default (state={}, action={}) => {
     case constants.USER_LOGGED_IN:
     return action.user
 
+    case constants.USER_LOGGED_OUT:
+    return {}
+
     default:return state
 
   }
