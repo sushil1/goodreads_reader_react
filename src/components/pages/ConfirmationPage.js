@@ -9,18 +9,22 @@ class ConfirmationPage extends Component{
 
   state={
     loading:true,
-    success:false
+    success:false,
+    errors:{}
   }
+
 
   componentDidMount(){
     this.props
     .confirm(this.props.match.params.token)
-    .then(() => this.setState({loading:false, success:true }))
-    .catch(() => this.setState({loading:false, success:false}))
+    .then(() =>
+    this.setState({loading:false, success:true }))
+    .catch((err) =>
+    this.setState({loading:false, success:false, errors:err.response.data.errors }))
   }
 
   render(){
-    const {loading, success} = this.state
+    const {loading, success, errors} = this.state
     return(
       <div>
         {loading && (
@@ -44,7 +48,7 @@ class ConfirmationPage extends Component{
                 <Message negative icon>
                   <Icon name="warning sign" />
                   <Message.Content>
-                    <Message.Header>Ooops. Invalid token it seems.</Message.Header>
+                    <Message.Header>Ooops. Invalid token it seems.{errors && errors.message}</Message.Header>
                   </Message.Content>
                 </Message>
               )}
