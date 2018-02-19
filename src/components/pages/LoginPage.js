@@ -15,7 +15,6 @@ class LoginPage extends Component{
   render(){
     return(
       <div>
-        <Link to='/'>Home</Link>
         <h1>Login page</h1>
 
         <LoginForm submit={this.submit}/>

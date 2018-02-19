@@ -19,10 +19,10 @@ HomePage.propTypes = {
   logout: PropTypes.func.isRequired
 }
 
-const stateToProps = (state) => {
-  return{
-    isAuthenticated: !!state.user.token
-  }
-}
+const stateToProps = (state) => ({
+  isAuthenticated: !!state.user.token
+})
+
+
 
 export default connect(stateToProps, {logout})(HomePage)

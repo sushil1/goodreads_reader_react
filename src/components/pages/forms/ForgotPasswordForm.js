@@ -22,7 +22,8 @@ class ForgotPasswordForm extends Component{
 
   onSubmit = e => {
     e.preventDefault()
-    const errors = {}
+    const errors = this.validate(this.state.data)
+
     this.setState({ errors })
 
     if(Object.keys(errors).length === 0){
